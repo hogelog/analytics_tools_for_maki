@@ -1,5 +1,8 @@
 require "active_record"
 require "embiggen"
+require "logger"
+
+@logger = Logger.new(STDERR)
 
 ActiveRecord::Base.establish_connection(
   adapter: "mysql2",
@@ -44,5 +47,5 @@ Twitter.where.not(tweet_id: TwitterAttribute.pluck(:tweet_id)).find_each do |twi
     link_status = TwitterAttribute::EXTERNAL
   end
 
-  p TwitterAttribute.create!(tweet_id: twitter.tweet_id, link_status: link_status)
+  @logger.info TwitterAttribute.create!(tweet_id: twitter.tweet_id, link_status: link_status)
 end
