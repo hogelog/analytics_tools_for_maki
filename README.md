@@ -20,5 +20,5 @@ $ mysql -uroot analytics < db/twitter_links.sql
 $ mysql -uroot analytics < db/twitter_attributes.sql
 $ bundle 
 ...
-$ bundle exec ruby expand_twitter_attributes.rb
+$ bundle exec ruby bin/expand_twitter_attributes.rb
 ```
